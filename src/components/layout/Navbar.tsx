@@ -50,7 +50,7 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`fixed inset-x-0 top-0 z-[90] transition-all duration-300 w-full ${
+      className={`fixed inset-x-0 top-0 z-[90] rounded-b-2xl transition-all duration-300 lg:rounded-none ${
         isScrolled
           ? "bg-background/95 backdrop-blur-md shadow-md py-0.5"
           : "bg-background/90 backdrop-blur-sm py-1"

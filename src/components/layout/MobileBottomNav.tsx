@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Home, Users, Briefcase, FolderOpen, User, X, Target, Code, Search, MessageCircle, Mail, Bot, Share2, Palette } from "lucide-react";
+import { Home, Users, Briefcase, FolderOpen, User, X, Target, Code, Search, MessageCircle, Mail, Bot, Share2, Palette, ArrowUpRight } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -46,8 +46,8 @@ export const MobileBottomNav = () => {
 
   return (
     <>
-      <nav className="fixed inset-x-0 bottom-0 z-[90] bg-background/95 backdrop-blur-md border-t border-border lg:hidden overflow-x-hidden">
-        <div className="flex items-center justify-between py-2 px-2 safe-area-pb">
+      <nav className="fixed inset-x-0 bottom-0 z-[90] rounded-t-2xl bg-background/95 backdrop-blur-md border-t border-border shadow-lg lg:hidden overflow-hidden">
+        <div className="flex items-center justify-between gap-1 p-2">
           {allItems.map((item) => {
             const isActive = location.pathname === item.path || 
               (item.path !== "/" && location.pathname.startsWith(item.path));
@@ -57,7 +57,7 @@ export const MobileBottomNav = () => {
                 key={item.name}
                 to={item.path}
                 onClick={item.name === "Services" ? handleServiceClick : undefined}
-                className={`flex flex-1 min-w-0 flex-col items-center justify-center py-2 px-1 rounded-lg transition-all duration-200 ${
+                className={`flex flex-1 min-w-0 flex-col items-center justify-center rounded-lg px-1 py-2 transition-all duration-200 ${
                   isActive
                     ? "text-accent bg-accent/10"
                     : "text-muted-foreground hover:text-foreground hover:bg-secondary"
@@ -81,26 +81,31 @@ export const MobileBottomNav = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setShowServices(false)}
-              className="fixed inset-0 bg-black/50 z-[60] lg:hidden"
+              className="fixed inset-0 bg-black/55 backdrop-blur-[2px] z-[60] lg:hidden"
             />
             <motion.div
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed bottom-0 left-0 right-0 z-[70] bg-background rounded-t-3xl shadow-2xl lg:hidden max-h-[80vh] overflow-hidden"
+              className="fixed inset-x-2 bottom-2 z-[70] bg-background rounded-3xl border border-border shadow-2xl lg:hidden max-h-[82vh] overflow-hidden"
             >
-              <div className="p-6 pb-24">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-xl font-bold text-foreground">Our Services</h3>
+              <div className="p-4 sm:p-5 pb-24">
+                <div className="w-10 h-1 rounded-full bg-border mx-auto mb-4" />
+                <div className="flex items-start justify-between mb-5">
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground">Our Services</h3>
+                    <p className="text-sm text-muted-foreground mt-0.5">Choose a service to continue</p>
+                  </div>
                   <button
                     onClick={() => setShowServices(false)}
                     className="p-2 hover:bg-secondary rounded-full transition-colors"
+                    aria-label="Close services popup"
                   >
                     <X className="w-5 h-5" />
                   </button>
                 </div>
-                <div className="grid grid-cols-2 gap-3 overflow-y-auto max-h-[60vh]">
+                <div className="grid grid-cols-2 gap-3 overflow-y-auto max-h-[62vh] pr-1">
                   {serviceItems.map((service, index) => (
                     <motion.div
                       key={service.path}
@@ -111,12 +116,13 @@ export const MobileBottomNav = () => {
                       <Link
                         to={service.path}
                         onClick={() => setShowServices(false)}
-                        className="flex flex-col items-center justify-center p-4 bg-card hover:bg-accent/10 rounded-2xl border border-border transition-all h-full min-h-[100px]"
+                        className="group flex flex-col items-center justify-center p-3 sm:p-4 bg-card hover:bg-accent/10 rounded-2xl border border-border transition-all h-full min-h-[108px] hover:border-accent/30"
                       >
-                        <div className={`w-12 h-12 rounded-xl ${service.color} flex items-center justify-center mb-2`}>
-                          <service.icon className="w-6 h-6" />
+                        <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl ${service.color} flex items-center justify-center mb-2`}>
+                          <service.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                         </div>
-                        <span className="font-medium text-foreground text-center text-sm">{service.name}</span>
+                        <span className="font-medium text-foreground text-center text-xs sm:text-sm leading-tight">{service.name}</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 mt-1 text-muted-foreground group-hover:text-accent transition-colors" />
                       </Link>
                     </motion.div>
                   ))}

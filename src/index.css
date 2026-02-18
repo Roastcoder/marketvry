@@ -132,11 +132,23 @@
 
   html {
     scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', sans-serif;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
   }
 
   /* Safe area padding for mobile bottom nav */
@@ -195,7 +207,7 @@
     }
     
     .container-custom {
-      @apply pl-4 pr-0;
+      @apply px-4;
     }
   }
 
