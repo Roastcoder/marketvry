@@ -195,7 +195,7 @@
     }
     
     .container-custom {
-      @apply px-4;
+      @apply pl-4 pr-0;
     }
   }
 
