@@ -32,6 +32,7 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+  const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState<string | null>(null);
   const location = useLocation();
   const { user, profile, signOut } = useAuth();
 
@@ -176,13 +177,23 @@ export const Navbar = () => {
               <div className="bg-card rounded-lg shadow-lg p-4 border border-border">
                 {navLinks.map((link) => (
                   <div key={link.name}>
-                    <Link
-                      to={link.path}
-                      className="block py-3 text-foreground font-medium hover:text-accent transition-colors"
-                    >
-                      {link.name}
-                    </Link>
-                    {link.submenu && (
+                    {link.submenu ? (
+                      <button
+                        onClick={() => setMobileSubmenuOpen(mobileSubmenuOpen === link.name ? null : link.name)}
+                        className="flex items-center justify-between w-full py-3 text-foreground font-medium hover:text-accent transition-colors"
+                      >
+                        {link.name}
+                        <ChevronDown className={`w-4 h-4 transition-transform ${mobileSubmenuOpen === link.name ? 'rotate-180' : ''}`} />
+                      </button>
+                    ) : (
+                      <Link
+                        to={link.path}
+                        className="block py-3 text-foreground font-medium hover:text-accent transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    )}
+                    {link.submenu && mobileSubmenuOpen === link.name && (
                       <div className="pl-4 border-l-2 border-border ml-2">
                         {link.submenu.map((subItem) => (
                           <Link
