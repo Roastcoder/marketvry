@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Marketvry Premium Agency Theme */
+    /* Soft off-white background - breathable & premium */
+    --background: 40 20% 98%;
+    --foreground: 220 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+
+    /* Deep Charcoal Primary - Authority & Trust */
+    --primary: 220 25% 10%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Electric Cyan Accent - Growth & Action */
+    --accent: 192 85% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Secondary - Cool Gray */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 25% 10%;
+
+    /* Muted - Readable Gray */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 46%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 192 85% 48%;
+
+    --radius: 0.75rem;
+
+    /* Brand Colors */
+    --charcoal: 220 25% 10%;
+    --charcoal-light: 220 20% 18%;
+    --cyan: 192 85% 48%;
+    --cyan-light: 192 85% 55%;
+    --cyan-dark: 192 85% 40%;
+    --cream: 40 20% 98%;
+    --gold: 45 70% 50%;
+    --gold-light: 45 70% 60%;
+    
+    /* Navy - Dark sections background */
+    --navy: 220 25% 10%;
+
+    /* Text Colors */
+    --text-primary: 220 25% 10%;
+    --text-secondary: 220 10% 46%;
+    --text-muted: 220 8% 60%;
+
+    /* Gradients */
+    --gradient-charcoal: linear-gradient(135deg, hsl(220 25% 10%) 0%, hsl(220 20% 18%) 100%);
+    --gradient-cyan: linear-gradient(135deg, hsl(192 85% 48%) 0%, hsl(192 85% 55%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 25% 8%) 0%, hsl(220 25% 12%) 50%, hsl(220 20% 18%) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(40 20% 98%) 0%, hsl(220 14% 96%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45 70% 50%) 0%, hsl(45 70% 60%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px -2px hsl(220 25% 10% / 0.08);
+    --shadow-md: 0 8px 24px -8px hsl(220 25% 10% / 0.12);
+    --shadow-lg: 0 16px 48px -16px hsl(220 25% 10% / 0.16);
+    --shadow-cyan: 0 8px 32px -8px hsl(192 85% 48% / 0.35);
+    --shadow-gold: 0 4px 16px -4px hsl(45 70% 50% / 0.3);
+
+    /* Sidebar defaults */
+    --sidebar-background: 40 20% 98%;
+    --sidebar-foreground: 220 10% 46%;
+    --sidebar-primary: 220 25% 10%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 220 25% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 192 85% 48%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 220 14% 96%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 220 14% 96%;
+
+    --popover: 220 25% 12%;
+    --popover-foreground: 220 14% 96%;
+
+    --primary: 0 0% 100%;
+    --primary-foreground: 220 25% 10%;
+
+    --accent: 192 85% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 220 14% 96%;
+
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 10% 65%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 220 14% 96%;
+
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --ring: 192 85% 52%;
+
+    --sidebar-background: 220 25% 10%;
+    --sidebar-foreground: 220 14% 96%;
+    --sidebar-primary: 192 85% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 18%;
+    --sidebar-accent-foreground: 220 14% 96%;
+    --sidebar-border: 220 20% 18%;
+    --sidebar-ring: 192 85% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Safe area padding for mobile bottom nav */
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    @apply font-bold tracking-tight;
+  }
+
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  /* Hero Button Styles */
+  .btn-hero {
+    @apply inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-full transition-all duration-300;
+    background: var(--gradient-cyan);
+    color: white;
+    box-shadow: var(--shadow-cyan);
+  }
+
+  .btn-hero:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px -8px hsl(192 85% 48% / 0.5);
+  }
+
+  .btn-hero-outline {
+    @apply inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-full transition-all duration-300 border-2;
+    border-color: hsl(var(--cyan));
+    color: hsl(var(--cyan));
+  }
+
+  .btn-hero-outline:hover {
+    background: hsl(var(--cyan));
+    color: white;
+  }
+
+  /* Section Styles */
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Full width on mobile */
+  @media (max-width: 640px) {
+    .section-padding {
+      @apply py-12;
+    }
+    
+    .container-custom {
+      @apply px-4;
+    }
+  }
+
+  /* Card Hover Effect */
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Text Gradient - Cyan */
+  .text-gradient {
+    background: var(--gradient-cyan);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Gold Accent Text */
+  .text-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Gold Underline Accent */
+  .gold-underline {
+    position: relative;
+  }
+
+  .gold-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-gold);
+    border-radius: 2px;
+  }
+
+  /* Animated Underline */
+  .link-underline {
+    @apply relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300;
+    background: hsl(var(--cyan));
+  }
+
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+
+  /* Glass Effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Charcoal Background */
+  .bg-charcoal {
+    background: var(--gradient-charcoal);
+  }
+
+  .bg-hero {
+    background: var(--gradient-hero);
+  }
+
+  /* Stats Counter */
+  .stat-number {
+    @apply text-5xl md:text-6xl font-bold;
+    background: var(--gradient-cyan);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Gold Divider */
+  .divider-gold {
+    height: 2px;
+    background: var(--gradient-gold);
+    opacity: 0.6;
+  }
+}
+
+@layer utilities {
+  /* Smooth animations */
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-left {
+    animation: slideLeft 0.6s ease-out forwards;
+  }
+
+  .animate-slide-right {
+    animation: slideRight 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideLeft {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideRight {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Staggered animations */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+}
