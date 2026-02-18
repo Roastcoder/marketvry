@@ -56,7 +56,7 @@ const Terms = () => {
 
             <h2 className="text-2xl font-bold text-foreground mb-4">7. Contact</h2>
             <p className="text-muted-foreground">
-              For questions about these Terms of Service, contact us at hello@marketvry.com
+              For questions about these Terms of Service, contact us at support@marketvry.com
             </p>
           </div>
         </div>

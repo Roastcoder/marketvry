@@ -51,7 +51,7 @@ const Privacy = () => {
 
             <h2 className="text-2xl font-bold text-foreground mb-4">6. Contact Us</h2>
             <p className="text-muted-foreground">
-              If you have any questions about this Privacy Policy, please contact us at hello@marketvry.com
+              If you have any questions about this Privacy Policy, please contact us at support@marketvry.com
             </p>
           </div>
         </div>

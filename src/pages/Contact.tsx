@@ -20,7 +20,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    content: "hello@marketvry.com",
+    content: "support@marketvry.com",
     description: "We'll respond within 24 hours",
   },
   {

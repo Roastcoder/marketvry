@@ -152,11 +152,11 @@ export const Footer = () => {
               </li>
               <li>
                 <a
-                  href="mailto:hello@marketvry.com"
+                  href="mailto:support@marketvry.com"
                   className="flex items-center gap-3 text-primary-foreground/70 hover:text-accent transition-colors"
                 >
                   <Mail className="w-5 h-5 text-accent" />
-                  hello@marketvry.com
+                  support@marketvry.com
                 </a>
               </li>
             </ul>
