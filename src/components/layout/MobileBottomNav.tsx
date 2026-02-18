@@ -46,8 +46,8 @@ export const MobileBottomNav = () => {
 
   return (
     <>
-      <nav className="fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-t border-border lg:hidden">
-        <div className="flex items-center justify-around py-2 px-2 safe-area-pb">
+      <nav className="fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-t border-border lg:hidden overflow-x-hidden">
+        <div className="flex items-center justify-between py-2 px-2 safe-area-pb">
           {allItems.map((item) => {
             const isActive = location.pathname === item.path || 
               (item.path !== "/" && location.pathname.startsWith(item.path));
@@ -57,14 +57,14 @@ export const MobileBottomNav = () => {
                 key={item.name}
                 to={item.path}
                 onClick={item.name === "Services" ? handleServiceClick : undefined}
-                className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-all duration-200 min-w-[60px] ${
+                className={`flex flex-1 min-w-0 flex-col items-center justify-center py-2 px-1 rounded-lg transition-all duration-200 ${
                   isActive
                     ? "text-accent bg-accent/10"
                     : "text-muted-foreground hover:text-foreground hover:bg-secondary"
                 }`}
               >
                 <item.icon className={`w-5 h-5 ${isActive ? "text-accent" : ""}`} />
-                <span className={`text-[10px] mt-1 font-medium ${isActive ? "text-accent" : ""}`}>
+                <span className={`mt-1 max-w-full truncate px-1 text-[10px] font-medium ${isActive ? "text-accent" : ""}`}>
                   {item.name}
                 </span>
               </Link>

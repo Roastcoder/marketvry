@@ -186,7 +186,7 @@ export const Footer = () => {
         </div>
         
         {/* 45° Tilted Signature */}
-        <div className="absolute bottom-4 right-4 md:bottom-6 md:right-8 transform rotate-[-45deg] opacity-20 hover:opacity-40 transition-opacity">
+        <div className="absolute bottom-4 right-4 md:bottom-6 md:right-8 transform rotate-[-45deg] opacity-20 hover:opacity-40 transition-opacity hidden md:block">
           <img 
             src={marketvryLogoWhite} 
             alt="Marketvry" 
