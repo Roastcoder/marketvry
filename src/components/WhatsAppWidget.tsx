@@ -20,10 +20,10 @@ export const WhatsAppWidget = ({
       rel="noopener noreferrer"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      transition={{ delay: 1, type: "spring", stiffness: 260, damping: 20 }}
-      whileHover={{ scale: 1.1 }}
+      transition={{ delay: 0.6, duration: 0.35, ease: "easeOut" }}
+      whileHover={{ scale: 1.06 }}
       whileTap={{ scale: 0.9 }}
-      className="fixed bottom-[5.5rem] lg:bottom-4 right-3 sm:right-4 z-40 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow cursor-pointer group overflow-hidden"
+      className="fixed bottom-[5.5rem] lg:bottom-4 right-3 sm:right-4 z-40 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow cursor-pointer group overflow-hidden origin-bottom-right"
       aria-label="Chat on WhatsApp"
     >
       <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />

@@ -176,7 +176,7 @@ const BulkMessaging = () => {
                 alt="Bulk Messaging"
                 className="rounded-2xl shadow-2xl"
               />
-              <div className="absolute bottom-3 right-3 sm:-bottom-6 sm:-right-6 bg-accent text-white p-4 sm:p-6 rounded-2xl shadow-xl">
+              <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 bg-accent text-white p-4 sm:p-6 rounded-2xl shadow-xl">
                 <div className="text-4xl font-bold">1000+</div>
                 <div className="text-sm">Messages/Min</div>
               </div>
